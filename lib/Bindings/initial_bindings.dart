@@ -1,7 +1,8 @@
 
 import 'package:get/get.dart';
+import 'package:internet_applications/Services/service.dart';
 
-import '../../services/service.dart';
+
 
 
 
