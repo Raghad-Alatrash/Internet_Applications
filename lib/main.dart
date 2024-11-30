@@ -4,15 +4,19 @@ import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:internet_applications/Bindings/home_bindings.dart';
 import 'package:internet_applications/Bindings/login_bindings.dart';
+import 'package:internet_applications/Bindings/pre_version_bindings.dart';
 import 'package:internet_applications/Bindings/register_bindings.dart';
 import 'package:internet_applications/Bindings/splash_bindings.dart';
+import 'package:internet_applications/Bindings/view_group_bindings.dart';
 import 'package:internet_applications/UI/color.dart';
 import 'package:internet_applications/View/home_screen.dart';
 import 'package:internet_applications/View/login_screen.dart';
 import 'package:internet_applications/View/register_screen.dart';
 import 'package:internet_applications/View/splash_screen.dart';
+import 'package:internet_applications/View/view_group_screen.dart';
 
 import 'Bindings/initial_bindings.dart';
+import 'View/pre_version_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -34,15 +38,10 @@ class MyApp extends StatelessWidget {
 
         light: AppTheme.lightTheme,
         dark: AppTheme.darkTheme,
-
-
-
-
-
-        initial: savedThemeMode ?? AdaptiveThemeMode.light,
+        initial: savedThemeMode ?? AdaptiveThemeMode.dark,
         builder: (ThemeData light, ThemeData dark) => GetMaterialApp(
                 debugShowCheckedModeBanner: false,
-                initialRoute: "/splash",
+                initialRoute: "/preVersion",
                 initialBinding: InitialBindings(),
                 theme: light,
                 darkTheme: dark,
@@ -66,6 +65,16 @@ class MyApp extends StatelessWidget {
                     name: "/home",
                     page: () => const HomeScreen(),
                     binding: HomeBindings(),
+                  ),
+                  GetPage(
+                    name: "/viewGroup",
+                    page: () =>  ViewGroupScreen(),
+                    binding: ViewGroupBindings(),
+                  ),
+                  GetPage(
+                    name: "/preVersion",
+                    page: () =>  const PreVersionScreen(),
+                    binding: PreVersionBindings(),
                   ),
                 ]));
   }
